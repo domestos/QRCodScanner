@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/zxing_custom_viewfinder_laser"
+            android:background="@color/colorPrimaryDark"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <LinearLayout
@@ -36,25 +36,40 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/editText9"
-                android:layout_width="156dp"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1.91"
-                android:ems="10"
-                android:inputType="numberSigned" />
+                android:orientation="vertical">
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.05" />
+                <EditText
+                    android:id="@+id/editText9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.91"
+                    android:ems="10"
+                    android:inputType="numberSigned" />
 
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.87"
-                android:text="Button" />
+                <Button
+                    android:id="@+id/bnSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.91"
+                    android:text="Searche" />
+
+                <TextView
+                    android:id="@+id/item"
+                    android:layout_width="match_parent"
+                    android:layout_height="253dp" />
+
+                <Button
+                    android:id="@+id/bnEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.91"
+                    android:text="Edit" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

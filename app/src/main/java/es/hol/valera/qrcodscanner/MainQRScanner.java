@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -18,6 +19,16 @@ import com.google.zxing.integration.android.IntentResult;
 public class MainQRScanner extends AppCompatActivity {
 
     Activity activity = this;
+
+    public TextView getItem() {
+        return item;
+    }
+
+    public void setItem(TextView item) {
+        this.item = item;
+    }
+
+    private TextView item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,16 +41,15 @@ public class MainQRScanner extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                IntentIntegrator integrator = new IntentIntegrator(activity);
-                integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
-                integrator.setPrompt("Gameloft QR Scanner");
-                integrator.setCameraId(0);  // Use a specific camera of the device
-                integrator.setBeepEnabled(false);
-                integrator.setBarcodeImageEnabled(true);
-                integrator.initiateScan();
 
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+               IntentIntegrator scanIntegrator = new IntentIntegrator(activity);
+               scanIntegrator.initiateScan();
+
+//
+
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Action", null).show();*/
             }
         });
     }
@@ -75,7 +85,11 @@ public class MainQRScanner extends AppCompatActivity {
             if (result.getContents() == null) {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+
+                 new Connect(  "http://lvilwks0004.lvi.gameloft.org/PHPScript/db_select.php?number='"+result.getContents()+"'", this).execute();
+
+                //Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
