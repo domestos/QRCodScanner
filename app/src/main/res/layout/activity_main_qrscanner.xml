@@ -43,12 +43,13 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/editText9"
+                    android:id="@+id/etNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.91"
                     android:ems="10"
-                    android:inputType="numberSigned" />
+                    android:inputType="textPersonName"
+                    android:text="240415/5/3" />
 
                 <Button
                     android:id="@+id/bnSearch"
